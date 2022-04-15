@@ -6,7 +6,6 @@ const fetch = axios.create({
 		'Access-Control-Allow-Origin': '*',
 		'Content-Type': 'application/json',
 	},
-  withCredentials: true,
 });
 
 export default fetch;
