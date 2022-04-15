@@ -30,14 +30,19 @@ export default function AdminPage() {
   }, [search, participants]);
 
   useLayoutEffect(() => {
-    fetch
-      .get("/participants")
-      .then((res) => {
-        setParticipants(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    function fetchData() {
+      fetch
+        .get("/participants")
+        .then((res) => {
+          setParticipants(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    setInterval(() => {
+      fetchData();
+    }, 3000);
   }, []);
 
   const handleButtonAdd = async (e) => {
